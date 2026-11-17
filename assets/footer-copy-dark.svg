@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 181.0 61" role="img" aria-label="©Dias Stas">
+  <style>
+  .rise { animation: rise .7s cubic-bezier(.2,.8,.2,1) both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+</style>
+  <g class="rise">
+  <rect x="4.5" y="4.5" width="176.0" height="56" fill="#525252"/>
+  <rect x="0.5" y="0.5" width="175.0" height="55" fill="#ffffff" stroke="#525252"/>
+  <text x="22" y="36" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace" font-size="22" fill="#040507" textLength="132.0" lengthAdjust="spacingAndGlyphs" xml:space="preserve" font-weight="700">©Dias Stas</text>
+  </g>
+</svg>

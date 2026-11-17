@@ -11,8 +11,8 @@ OUT = Path(__file__).parent / "assets"
 OUT.mkdir(exist_ok=True)
 
 THEMES = {
-    "dark": dict(bg="#040507", fg="#ffffff", text="#AEB5B8", line="#525252", soft="#1c1c1c", echo="#AEB5B8"),
-    "light": dict(bg="#e4e4e4", fg="#1a1a1a", text="#3a3a3a", line="#6f6f6f", soft="#f6f6f6", echo="#6f6f6f"),
+    "dark": dict(bg="#040507", fg="#ffffff", text="#AEB5B8", dim="#7d8589", line="#525252", soft="#1c1c1c", echo="#AEB5B8"),
+    "light": dict(bg="#e4e4e4", fg="#1a1a1a", text="#3a3a3a", dim="#6a6a6a", line="#6f6f6f", soft="#f6f6f6", echo="#6f6f6f"),
 }
 
 MONO = "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace"
@@ -228,10 +228,11 @@ SESSION = [
 
 
 def terminal(t):
-    W = 900
-    cw, size, lh = 11.4, 19, 34
-    top, left = 78, 32
-    H = top + len(SESSION) * lh + lh + 24
+    # same size, spacing and title bar as the other windows (text_window), so they line up
+    W = 1200
+    cw, size, lh = 14.4, 24, 42
+    top, left = 96, 36
+    H = top + len(SESSION) * lh + lh + 16
     TYPE_T, PAUSE, OUT_PAUSE, END_HOLD = 0.07, 0.35, 0.5, 6.0
 
     # schedule
@@ -258,11 +259,11 @@ def terminal(t):
             lines.append(
                 f'<g visibility="hidden">{discrete("visibility", show, cycle)}'
                 f'{mono_text(left, y, "$", size, cw, t["text"])}</g>'
-                f'<clipPath id="t{i}"><rect x="{x0}" y="{y - 22}" width="0" height="30">{discrete("width", frames, cycle)}</rect></clipPath>'
+                f'<clipPath id="t{i}"><rect x="{x0}" y="{y - 26}" width="0" height="36">{discrete("width", frames, cycle)}</rect></clipPath>'
                 f'<g clip-path="url(#t{i})">{mono_text(x0, y, s, size, cw, t["fg"])}</g>'
             )
             cursor_x += [(start, x0)] + [(ft, x0 + w) for ft, w in frames[1:]]
-            cursor_y += [(start, y - 18)]
+            cursor_y += [(start, y - 20)]
         else:
             show = clean([(0, "hidden"), (start, "visible")])
             color = t["fg"] if kind == "dir" else t["text"]
@@ -274,9 +275,9 @@ def terminal(t):
     show = clean([(0, "hidden"), (final_prompt_t, "visible")])
     lines.append(f'<g visibility="hidden">{discrete("visibility", show, cycle)}{mono_text(left, fy, "$", size, cw, t["text"])}</g>')
     cursor_x += [(final_prompt_t, left + 2 * cw)]
-    cursor_y += [(final_prompt_t, fy - 18)]
+    cursor_y += [(final_prompt_t, fy - 20)]
 
-    cursor = (f'<rect x="{left + 2 * cw}" y="{top - 18}" width="{cw * 0.9:.1f}" height="22" fill="{t["text"]}">'
+    cursor = (f'<rect x="{left + 2 * cw}" y="{top - 20}" width="{cw * 0.9:.1f}" height="26" fill="{t["text"]}">'
               f'{discrete("x", clean(cursor_x), cycle)}{discrete("y", clean(cursor_y), cycle)}'
               f'<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1s" repeatCount="indefinite" calcMode="discrete"/>'
               f'</rect>')
@@ -297,7 +298,189 @@ def terminal(t):
 """
 
 
+
+# ---------------------------------------------------------------- static pieces
+# lighter than the banner: they rise in once, only the cursors keep blinking
+
+RISE = """
+  .rise { animation: rise .7s cubic-bezier(.2,.8,.2,1) both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+"""
+
+
+def blink_cursor(x, y, w, h, fill):
+    return (f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="{fill}">'
+            f'<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1s" repeatCount="indefinite" calcMode="discrete"/></rect>')
+
+
+def window(t, W, H, title, body, label, shadow=10, bar=44, right=""):
+    """A window like the terminal: title bar, three rings, hard shadow."""
+    w, h = W - shadow, H - shadow
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img" aria-label="{esc(label)}">
+  <style>{RISE}</style>
+  <g class="rise">
+  <rect x="{shadow - .5}" y="{shadow - .5}" width="{w}" height="{h}" fill="{t['line']}"/>
+  <rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" fill="{t['bg']}" stroke="{t['line']}"/>
+  <rect x="0.5" y="0.5" width="{w - 1}" height="{bar}" fill="{t['soft']}" stroke="{t['line']}"/>
+  <g fill="none" stroke="{t['text']}" stroke-width="1.5">
+    <circle cx="26" cy="{bar / 2 + .5}" r="6"/><circle cx="48" cy="{bar / 2 + .5}" r="6"/><circle cx="70" cy="{bar / 2 + .5}" r="6"/>
+  </g>
+  {mono_text(w / 2 - len(title) * 5.4, bar / 2 + 6, title, 17, 10.8, t['text'])}
+  {right}
+  {body}
+  </g>
+</svg>
+"""
+
+
+SITES = [
+    ("01", "hello", "hello.errornoslash.be", "who I am, what I build", "ErrorNoSlash/portfolio"),
+    ("02", "contact", "contact.errornoslash.be", "every way to reach me", "ErrorNoSlash/Contact"),
+    ("03", "blog", "blog.errornoslash.be", "notes on the things I make", "ErrorNoSlash/blog"),
+    ("04", "docs", "docs.errornoslash.be", "docs for the things I make", "ErrorNoSlash/docs"),
+]
+
+
+def site_card(t, num, name, url, desc, src):
+    W, H = 600, 300
+    num_svg = mono_text(W - 10 - 22 - len(num) * 12, 28, num, 20, 12, t["fg"], ' font-weight="700"')
+    body = [
+        f'<text x="30" y="128" font-family="{DISPLAY}" font-size="68" font-weight="900" letter-spacing="-2" fill="{t["fg"]}">{name}</text>',
+    ]
+    if url:
+        body.append(mono_text(32, 172, url + " ↗", 21, 12.6, t["fg"]))
+    else:
+        soon = "coming soon"
+        body.append(mono_text(32, 172, soon, 21, 12.6, t["fg"]))
+        body.append(blink_cursor(32 + len(soon) * 12.6 + 4, 155, 11, 22, t["text"]))
+    body.append(mono_text(32, 208, desc, 18, 10.8, t["text"]))
+    body.append(f'<line x1="30" y1="232" x2="{W - 40}" y2="232" stroke="{t["line"]}" stroke-dasharray="4 6"/>')
+    body.append(mono_text(32, 264, "src  " + src, 17, 10.2, t["text"]))
+    return window(t, W, H, f"~/sites/{name}", "".join(body), f"{name}: {desc}", right=num_svg)
+
+
+def text_window(t, title, rows, label, cursor_prompt=True):
+    """rows: (kind, value).
+    '$' command (dim prompt, bright command)   '$link' the same, underlined
+    '#' comment (dim)                          'kv' (key, value): key, dotted leader, bright value
+    """
+    W = 1200
+    cw, size, lh, gap, top, left = 14.4, 24, 42, 14, 96, 36
+    keycol = 13 * cw
+    out, y = [], top
+    for i, (kind, val) in enumerate(rows):
+        if kind.startswith("$") and i > 0:
+            y += gap  # a little air before every new command
+        if kind.startswith("$"):
+            out.append(mono_text(left, y, "$", size, cw, t["dim"]))
+            out.append(mono_text(left + 2 * cw, y, val, size, cw, t["fg"]))
+            if kind == "$link":
+                x0 = left + 2 * cw + val.index(" ") * cw + cw
+                x1 = left + 2 * cw + len(val.rstrip(" ↗")) * cw
+                out.append(f'<line x1="{x0:.1f}" y1="{y + 6}" x2="{x1:.1f}" y2="{y + 6}" stroke="{t["fg"]}" stroke-width="1.5"/>')
+        elif kind == "kv":
+            k, v = val
+            out.append(mono_text(left, y, k, size, cw, t["text"]))
+            out.append(f'<line x1="{left + len(k) * cw + 10:.1f}" y1="{y - 7}" x2="{left + keycol - 14:.1f}" y2="{y - 7}" '
+                       f'stroke="{t["dim"]}" stroke-width="2" stroke-dasharray="1.5 7" stroke-linecap="round"/>')
+            out.append(mono_text(left + keycol, y, v, size, cw, t["fg"]))
+        elif kind == "#":
+            out.append(mono_text(left, y, val, size, cw, t["dim"], ' font-style="italic"'))
+        else:
+            out.append(mono_text(left, y, val, size, cw, t["text"]))
+        y += lh
+    if cursor_prompt:
+        y += gap
+        out.append(mono_text(left, y, "$", size, cw, t["dim"]))
+        out.append(blink_cursor(left + 2 * cw, y - 20, cw * .9, 26, t["text"]))
+        y += lh
+    H = y - lh + 40 + 10
+    return window(t, W, H, title, "".join(out), label)
+
+
+def off_github(t):
+    rows = [
+        ("$", "cat slashyos.md"),
+        ("#", "# my NixOS flake. it lives on GitLab, not here"),
+        ("kv", ("hosts", "pallidus · theseus, one flake for desktop and laptop")),
+        ("kv", ("desktop", "niri + noctalia, wrapped instead of dotfiled")),
+        ("kv", ("theme", "stylix, one wallpaper colours everything")),
+        ("kv", ("ci", "deadnix · statix · nix fmt · both hosts evaluated")),
+        ("$link", "open gitlab.com/nixos-projects/slashyos ↗"),
+    ]
+    return text_window(t, "dias@github: ~/off-github", rows, "SlashyOS, my NixOS flake on GitLab: hosts, desktop, theme and CI")
+
+
+def now_txt(t):
+    rows = [
+        ("$", "cat now.txt"),
+        ("kv", ("building", "docs.errornoslash.be, docs for my projects")),
+        ("kv", ("tinkering", "SlashyOS: mirroring to a second screen for presentations")),
+        ("kv", ("writing", "on the blog, about the things I make")),
+    ]
+    return text_window(t, "dias@github: ~", rows, "now.txt: what Dias is building, tinkering with and writing")
+
+
+FOOTER = [
+    ("copy", "©Dias Stas"),
+    ("website", "website ↗"),
+    ("blog", "blog ↗"),
+    ("contact", "contact ↗"),
+    ("gitlab", "gitlab ↗"),
+    ("mastodon", "mastodon ↗"),
+]
+
+
+def pill(t, text, inverted=False):
+    cw, size, pad, sh = 13.2, 22, 22, 5
+    w = len(text) * cw + pad * 2
+    H = 56 + sh
+    W = w + sh
+    face, ink = (t["fg"], t["bg"]) if inverted else (t["bg"], t["fg"])
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W:.1f} {H}" role="img" aria-label="{esc(text)}">
+  <style>{RISE}</style>
+  <g class="rise">
+  <rect x="{sh - .5}" y="{sh - .5}" width="{w:.1f}" height="56" fill="{t['line']}"/>
+  <rect x="0.5" y="0.5" width="{w - 1:.1f}" height="55" fill="{face}" stroke="{t['line']}"/>
+  {mono_text(pad, 36, text, size, cw, ink, ' font-weight="700"' if inverted else '')}
+  </g>
+</svg>
+"""
+
+
+MOTD = "I like to make stuff — particularly when it comes to my homelab."
+
+
+def motd(t):
+    """The tagline under the banner: a bordered row with a `$ cat motd` cell."""
+    W, sh = 1200, 8
+    w, h = W - sh, 84
+    cw, size = 14.4, 24
+    cell = 236
+    label = "$ cat motd"
+    tx = cell + 24
+    tw = len(MOTD) * cw
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {h + sh}" role="img" aria-label="{esc(MOTD)}">
+  <style>{RISE}</style>
+  <g class="rise">
+  <rect x="{sh - .5}" y="{sh - .5}" width="{w}" height="{h}" fill="{t['line']}"/>
+  <rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" fill="{t['bg']}" stroke="{t['line']}"/>
+  <rect x="0.5" y="0.5" width="{cell}" height="{h - 1}" fill="{t['soft']}" stroke="{t['line']}"/>
+  {mono_text(26, h / 2 + 8, label, size, cw, t['text'])}
+  {blink_cursor(26 + len(label) * cw + 6, h / 2 - 12, cw * .9, 26, t['text'])}
+  {mono_text(tx, h / 2 + 8, MOTD, size, cw * min(1, (w - tx - 24) / tw), t['fg'], ' font-weight="700"')}
+  </g>
+</svg>
+"""
+
 for name, theme in THEMES.items():
     (OUT / f"banner-{name}.svg").write_text(banner(theme))
     (OUT / f"terminal-{name}.svg").write_text(terminal(theme))
+    for num, site, url, desc, src in SITES:
+        (OUT / f"site-{site}-{name}.svg").write_text(site_card(theme, num, site, url, desc, src))
+    (OUT / f"off-github-{name}.svg").write_text(off_github(theme))
+    (OUT / f"now-{name}.svg").write_text(now_txt(theme))
+    (OUT / f"motd-{name}.svg").write_text(motd(theme))
+    for key, text in FOOTER:
+        (OUT / f"footer-{key}-{name}.svg").write_text(pill(theme, text, inverted=key == "copy"))
 print("ok")

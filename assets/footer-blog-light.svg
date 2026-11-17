@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128.2 61" role="img" aria-label="blog ↗">
+  <style>
+  .rise { animation: rise .7s cubic-bezier(.2,.8,.2,1) both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+</style>
+  <g class="rise">
+  <rect x="4.5" y="4.5" width="123.2" height="56" fill="#6f6f6f"/>
+  <rect x="0.5" y="0.5" width="122.2" height="55" fill="#e4e4e4" stroke="#6f6f6f"/>
+  <text x="22" y="36" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace" font-size="22" fill="#1a1a1a" textLength="79.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">blog ↗</text>
+  </g>
+</svg>

@@ -4,14 +4,21 @@
 </picture>
 
 <p align="center">
-  <b>I like to make stuff — particularly when it comes to my homelab.</b><br>
-  <a href="https://hello.errornoslash.be">website</a> · <a href="https://blog.errornoslash.be">blog</a> · <a href="https://contact.errornoslash.be">contact</a> · <a href="https://gitlab.com/ErrorN0Slash">gitlab</a> · <a href="https://mastodon.social/@slashy">mastodon</a>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/motd-dark.svg"><img src="assets/motd-light.svg" alt="I like to make stuff — particularly when it comes to my homelab." width="100%"></picture>
+</p>
+
+<p align="center">
+  <a href="https://hello.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/footer-website-dark.svg"><img src="assets/footer-website-light.svg" alt="website" height="40"></picture></a>
+  <a href="https://blog.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/footer-blog-dark.svg"><img src="assets/footer-blog-light.svg" alt="blog" height="40"></picture></a>
+  <a href="https://contact.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/footer-contact-dark.svg"><img src="assets/footer-contact-light.svg" alt="contact" height="40"></picture></a>
+  <a href="https://gitlab.com/ErrorN0Slash"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/footer-gitlab-dark.svg"><img src="assets/footer-gitlab-light.svg" alt="gitlab" height="40"></picture></a>
+  <a href="https://mastodon.social/@slashy" rel="me"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/footer-mastodon-dark.svg"><img src="assets/footer-mastodon-light.svg" alt="mastodon" height="40"></picture></a>
 </p>
 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/terminal-dark.svg">
-    <img src="assets/terminal-light.svg" alt="A terminal running whoami, cat stack.txt, ls ~/sites, uname -a and ping dias" width="760">
+    <img src="assets/terminal-light.svg" alt="A terminal running whoami, cat stack.txt, ls ~/sites, uname -a and ping dias" width="100%">
   </picture>
 </p>
 
@@ -19,27 +26,25 @@
 
 ## 📌 Sites
 
-Every site is hand-made: vanilla HTML, CSS and JavaScript, no build step, black and white.
-
-| #  | site        | live                                                   | source                                                    |
-| -- | ----------- | ------------------------------------------------------ | --------------------------------------------------------- |
-| 01 | **hello**   | [hello.errornoslash.be](https://hello.errornoslash.be)     | [portfolio](https://github.com/ErrorNoSlash/portfolio) |
-| 02 | **contact** | [contact.errornoslash.be](https://contact.errornoslash.be) | [Contact](https://github.com/ErrorNoSlash/Contact)     |
-| 03 | **blog**    | [blog.errornoslash.be](https://blog.errornoslash.be)       | [blog](https://github.com/ErrorNoSlash/blog)           |
-| 04 | **docs**    | coming soon                                            | [docs](https://github.com/ErrorNoSlash/docs)              |
+<p align="center">
+  <a href="https://hello.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/site-hello-dark.svg"><img src="assets/site-hello-light.svg" alt="hello.errornoslash.be — my portfolio" width="49%"></picture></a>
+  <a href="https://contact.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/site-contact-dark.svg"><img src="assets/site-contact-light.svg" alt="contact.errornoslash.be — every way to reach me" width="49%"></picture></a>
+  <br>
+  <a href="https://blog.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/site-blog-dark.svg"><img src="assets/site-blog-light.svg" alt="blog.errornoslash.be — notes on the things I make" width="49%"></picture></a>
+  <a href="https://docs.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/site-docs-dark.svg"><img src="assets/site-docs-light.svg" alt="docs.errornoslash.be — docs for the things I make" width="49%"></picture></a>
+</p>
 
 ## ❄️ Off GitHub
 
-My NixOS config lives on GitLab: **[SlashyOS](https://gitlab.com/nixos-projects/slashyos)** — one flake for an AMD desktop and a Framework laptop, with niri and Noctalia on top and Stylix colouring everything from a single wallpaper. CI lints, formats and evaluates both hosts on every push.
+<p align="center">
+  <a href="https://gitlab.com/nixos-projects/slashyos"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/off-github-dark.svg"><img src="assets/off-github-light.svg" alt="SlashyOS — my NixOS flake on GitLab: two hosts, niri + Noctalia, Stylix, CI on every push" width="100%"></picture></a>
+</p>
 
 ## 📝 now.txt
 
-```console
-$ cat now.txt
-building    the docs site, empty for now
-tinkering   SlashyOS: mirroring to a second screen for presentations
-writing     on the blog, about the things I make
-```
+<p align="center">
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/now-dark.svg"><img src="assets/now-light.svg" alt="now.txt — building docs.errornoslash.be, tinkering with SlashyOS screen mirroring, writing on the blog" width="100%"></picture>
+</p>
 
 <details>
 <summary>🛠️ How this README works</summary>
@@ -52,13 +57,19 @@ No widgets, no third-party cards. The banner and the terminal are hand-written S
 | ------------ | --------------------------------------------------------------------------------- |
 | **banner**   | the DS dots pop in and flicker, the prompt types the tab-title commands, the title glitches, the marquee scrolls |
 | **terminal** | types five commands and prints their output, then starts over                     |
+| **the rest** | the motd, site cards, `slashyos.md`, `now.txt`, the link buttons and the footer: they rise in once, the cursors blink |
 
-They're generated by [`build.py`](build.py): change `COMMANDS`, `SESSION` or `MARQUEE` and run `python3 build.py`.
+They're generated by [`build.py`](build.py): change `COMMANDS`, `SESSION`, `MARQUEE`, `MOTD`, `SITES`, `now_txt` or `FOOTER` and run `python3 build.py`.
 
 </details>
 
 ---
 
 <p align="center">
-  <code>©Dias Stas</code> · <a href="https://hello.errornoslash.be">Website</a> · <a href="https://blog.errornoslash.be">Blog</a> · <a href="https://contact.errornoslash.be">Contact</a> · <a href="https://gitlab.com/ErrorN0Slash">GitLab</a> · <a href="https://mastodon.social/@slashy" rel="me">Mastodon</a>
+  <a href="https://contact.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/footer-copy-dark.svg"><img src="assets/footer-copy-light.svg" alt="©Dias Stas" height="44"></picture></a>
+  <a href="https://hello.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/footer-website-dark.svg"><img src="assets/footer-website-light.svg" alt="website" height="44"></picture></a>
+  <a href="https://blog.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/footer-blog-dark.svg"><img src="assets/footer-blog-light.svg" alt="blog" height="44"></picture></a>
+  <a href="https://contact.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/footer-contact-dark.svg"><img src="assets/footer-contact-light.svg" alt="contact" height="44"></picture></a>
+  <a href="https://gitlab.com/ErrorN0Slash"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/footer-gitlab-dark.svg"><img src="assets/footer-gitlab-light.svg" alt="gitlab" height="44"></picture></a>
+  <a href="https://mastodon.social/@slashy" rel="me"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/footer-mastodon-dark.svg"><img src="assets/footer-mastodon-light.svg" alt="mastodon" height="44"></picture></a>
 </p>
