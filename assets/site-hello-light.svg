@@ -3,15 +3,15 @@
   .rise { animation: rise .7s cubic-bezier(.2,.8,.2,1) both; }
   @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 </style>
-  <g class="rise">
-  <rect x="9.5" y="9.5" width="590" height="290" fill="#6f6f6f"/>
-  <rect x="0.5" y="0.5" width="589" height="289" fill="#e4e4e4" stroke="#6f6f6f"/>
-  <rect x="0.5" y="0.5" width="589" height="44" fill="#f6f6f6" stroke="#6f6f6f"/>
+  <g transform="translate(0 0)"><g class="rise">
+  <rect x="9.5" y="9.5" width="585" height="290" fill="#6f6f6f"/>
+  <rect x="0.5" y="0.5" width="584" height="289" fill="#e4e4e4" stroke="#6f6f6f"/>
+  <rect x="0.5" y="0.5" width="584" height="44" fill="#f6f6f6" stroke="#6f6f6f"/>
   <g fill="none" stroke="#3a3a3a" stroke-width="1.5">
     <circle cx="26" cy="22.5" r="6"/><circle cx="48" cy="22.5" r="6"/><circle cx="70" cy="22.5" r="6"/>
   </g>
-  <text x="224.8" y="28.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace" font-size="17" fill="#3a3a3a" textLength="140.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve">~/sites/hello</text>
-  <text x="544" y="28" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace" font-size="20" fill="#1a1a1a" textLength="24.0" lengthAdjust="spacingAndGlyphs" xml:space="preserve" font-weight="700">01</text>
-  <text x="30" y="128" font-family="Outfit, 'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="68" font-weight="900" letter-spacing="-2" fill="#1a1a1a">hello</text><text x="32" y="172" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace" font-size="21" fill="#1a1a1a" textLength="289.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">hello.errornoslash.be ↗</text><text x="32" y="208" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace" font-size="18" fill="#3a3a3a" textLength="237.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve">who I am, what I build</text><line x1="30" y1="232" x2="560" y2="232" stroke="#6f6f6f" stroke-dasharray="4 6"/><text x="32" y="264" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace" font-size="17" fill="#3a3a3a" textLength="275.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve">src  ErrorNoSlash/portfolio</text>
-  </g>
+  <text x="222.3" y="28.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace" font-size="17" fill="#3a3a3a" textLength="140.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve">~/sites/hello</text>
+  <text x="539" y="28" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace" font-size="20" fill="#1a1a1a" textLength="24.0" lengthAdjust="spacingAndGlyphs" xml:space="preserve" font-weight="700">01</text>
+  <text x="30" y="128" font-family="Outfit, 'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="68" font-weight="900" letter-spacing="-2" fill="#1a1a1a">hello</text><text x="32" y="172" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace" font-size="21" fill="#1a1a1a" textLength="289.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">hello.errornoslash.be ↗</text><text x="32" y="208" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace" font-size="18" fill="#3a3a3a" textLength="237.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve">who I am, what I build</text><line x1="30" y1="232" x2="555" y2="232" stroke="#6f6f6f" stroke-dasharray="4 6"/><text x="32" y="264" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace" font-size="17" fill="#3a3a3a" textLength="275.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve">src  ErrorNoSlash/portfolio</text>
+  </g></g>
 </svg>

@@ -195,8 +195,9 @@ def banner(t):
       .sub { animation: rise .7s 1s cubic-bezier(.2,.8,.2,1) both; }
     """
 
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img" aria-label="Dias Stas - front-end developer, NixOS and homelab">
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W + 10} {H + 10}" role="img" aria-label="Dias Stas - front-end developer, NixOS and homelab">
   <style>{dot_css}{title_css}{sub_css}</style>
+  <rect x="9.5" y="9.5" width="{W}" height="{H}" fill="{t['line']}"/>
   <rect x="0.5" y="0.5" width="{W - 1}" height="{H - 1}" fill="{t['bg']}" stroke="{t['line']}"/>
   <line x1="0" y1="{split}" x2="{W}" y2="{split}" stroke="{t['line']}"/>
   <line x1="340" y1="40" x2="340" y2="{split - 40}" stroke="{t['line']}"/>
@@ -313,12 +314,12 @@ def blink_cursor(x, y, w, h, fill):
             f'<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1s" repeatCount="indefinite" calcMode="discrete"/></rect>')
 
 
-def window(t, W, H, title, body, label, shadow=10, bar=44, right=""):
+def window(t, W, H, title, body, label, shadow=10, bar=44, right="", vbw=None, ox=0):
     """A window like the terminal: title bar, three rings, hard shadow."""
     w, h = W - shadow, H - shadow
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img" aria-label="{esc(label)}">
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {vbw or W} {H}" role="img" aria-label="{esc(label)}">
   <style>{RISE}</style>
-  <g class="rise">
+  <g transform="translate({ox} 0)"><g class="rise">
   <rect x="{shadow - .5}" y="{shadow - .5}" width="{w}" height="{h}" fill="{t['line']}"/>
   <rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" fill="{t['bg']}" stroke="{t['line']}"/>
   <rect x="0.5" y="0.5" width="{w - 1}" height="{bar}" fill="{t['soft']}" stroke="{t['line']}"/>
@@ -328,7 +329,7 @@ def window(t, W, H, title, body, label, shadow=10, bar=44, right=""):
   {mono_text(w / 2 - len(title) * 5.4, bar / 2 + 6, title, 17, 10.8, t['text'])}
   {right}
   {body}
-  </g>
+  </g></g>
 </svg>
 """
 
@@ -341,8 +342,8 @@ SITES = [
 ]
 
 
-def site_card(t, num, name, url, desc, src):
-    W, H = 600, 300
+def site_card(t, num, name, url, desc, src, side="left"):
+    W, H = 595, 300
     num_svg = mono_text(W - 10 - 22 - len(num) * 12, 28, num, 20, 12, t["fg"], ' font-weight="700"')
     body = [
         f'<text x="30" y="128" font-family="{DISPLAY}" font-size="68" font-weight="900" letter-spacing="-2" fill="{t["fg"]}">{name}</text>',
@@ -356,7 +357,7 @@ def site_card(t, num, name, url, desc, src):
     body.append(mono_text(32, 208, desc, 18, 10.8, t["text"]))
     body.append(f'<line x1="30" y1="232" x2="{W - 40}" y2="232" stroke="{t["line"]}" stroke-dasharray="4 6"/>')
     body.append(mono_text(32, 264, "src  " + src, 17, 10.2, t["text"]))
-    return window(t, W, H, f"~/sites/{name}", "".join(body), f"{name}: {desc}", right=num_svg)
+    return window(t, W, H, f"~/sites/{name}", "".join(body), f"{name}: {desc}", right=num_svg, vbw=600, ox=0 if side == "left" else 5)
 
 
 def text_window(t, title, rows, label, cursor_prompt=True):
@@ -453,7 +454,7 @@ MOTD = "I like to make stuff — particularly when it comes to my homelab."
 
 def motd(t):
     """The tagline under the banner: a bordered row with a `$ cat motd` cell."""
-    W, sh = 1200, 8
+    W, sh = 1200, 10
     w, h = W - sh, 84
     cw, size = 14.4, 24
     cell = 236
@@ -476,8 +477,8 @@ def motd(t):
 for name, theme in THEMES.items():
     (OUT / f"banner-{name}.svg").write_text(banner(theme))
     (OUT / f"terminal-{name}.svg").write_text(terminal(theme))
-    for num, site, url, desc, src in SITES:
-        (OUT / f"site-{site}-{name}.svg").write_text(site_card(theme, num, site, url, desc, src))
+    for i, (num, site, url, desc, src) in enumerate(SITES):
+        (OUT / f"site-{site}-{name}.svg").write_text(site_card(theme, num, site, url, desc, src, side="left" if i % 2 == 0 else "right"))
     (OUT / f"off-github-{name}.svg").write_text(off_github(theme))
     (OUT / f"now-{name}.svg").write_text(now_txt(theme))
     (OUT / f"motd-{name}.svg").write_text(motd(theme))

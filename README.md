@@ -27,11 +27,7 @@
 ## 📌 Sites
 
 <p align="center">
-  <a href="https://hello.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/site-hello-dark.svg"><img src="assets/site-hello-light.svg" alt="hello.errornoslash.be — my portfolio" width="49%"></picture></a>
-  <a href="https://contact.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/site-contact-dark.svg"><img src="assets/site-contact-light.svg" alt="contact.errornoslash.be — every way to reach me" width="49%"></picture></a>
-  <br>
-  <a href="https://blog.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/site-blog-dark.svg"><img src="assets/site-blog-light.svg" alt="blog.errornoslash.be — notes on the things I make" width="49%"></picture></a>
-  <a href="https://docs.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/site-docs-dark.svg"><img src="assets/site-docs-light.svg" alt="docs.errornoslash.be — docs for the things I make" width="49%"></picture></a>
+  <a href="https://hello.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/site-hello-dark.svg"><img src="assets/site-hello-light.svg" alt="hello.errornoslash.be — my portfolio" width="50%"></picture></a><a href="https://contact.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/site-contact-dark.svg"><img src="assets/site-contact-light.svg" alt="contact.errornoslash.be — every way to reach me" width="50%"></picture></a><br><a href="https://blog.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/site-blog-dark.svg"><img src="assets/site-blog-light.svg" alt="blog.errornoslash.be — notes on the things I make" width="50%"></picture></a><a href="https://docs.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/site-docs-dark.svg"><img src="assets/site-docs-light.svg" alt="docs.errornoslash.be — docs for the things I make" width="50%"></picture></a>
 </p>
 
 ## ❄️ Off GitHub
