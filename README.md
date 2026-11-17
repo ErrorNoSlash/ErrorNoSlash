@@ -4,7 +4,7 @@
 </picture>
 
 <p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/motd-dark.svg"><img src="assets/motd-light.svg" alt="I like to make stuff — particularly when it comes to my homelab." width="100%"></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/tagline-dark.svg"><img src="assets/tagline-light.svg" alt="I like to make stuff — particularly when it comes to my homelab." width="100%"></picture>
 </p>
 
 <p align="center">

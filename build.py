@@ -482,7 +482,7 @@ for name, theme in THEMES.items():
         (OUT / f"site-{site}-{name}.svg").write_text(site_card(theme, num, site, url, desc, src, side="left" if i % 2 == 0 else "right"))
     (OUT / f"off-github-{name}.svg").write_text(off_github(theme))
     (OUT / f"now-{name}.svg").write_text(now_txt(theme))
-    (OUT / f"motd-{name}.svg").write_text(motd(theme))
+    (OUT / f"tagline-{name}.svg").write_text(motd(theme))
     for key, text in FOOTER:
         (OUT / f"footer-{key}-{name}.svg").write_text(pill(theme, text, inverted=key == "copy"))
 print("ok")
