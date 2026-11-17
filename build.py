@@ -461,16 +461,17 @@ def motd(t):
     label = "$ cat motd"
     tx = cell + 24
     tw = len(MOTD) * cw
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {h + sh}" role="img" aria-label="{esc(MOTD)}">
+    top = 14  # a little air between the banner and this strip
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {h + sh + top}" role="img" aria-label="{esc(MOTD)}">
   <style>{RISE}</style>
-  <g class="rise">
+  <g transform="translate(0 {top})"><g class="rise">
   <rect x="{sh - .5}" y="{sh - .5}" width="{w}" height="{h}" fill="{t['line']}"/>
   <rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" fill="{t['bg']}" stroke="{t['line']}"/>
   <rect x="0.5" y="0.5" width="{cell}" height="{h - 1}" fill="{t['soft']}" stroke="{t['line']}"/>
   {mono_text(26, h / 2 + 8, label, size, cw, t['text'])}
   {blink_cursor(26 + len(label) * cw + 6, h / 2 - 12, cw * .9, 26, t['text'])}
   {mono_text(tx, h / 2 + 8, MOTD, size, cw * min(1, (w - tx - 24) / tw), t['fg'], ' font-weight="700"')}
-  </g>
+  </g></g>
 </svg>
 """
 

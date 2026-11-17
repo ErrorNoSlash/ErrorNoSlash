@@ -1,14 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 94" role="img" aria-label="I like to make stuff — particularly when it comes to my homelab.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 108" role="img" aria-label="I like to make stuff — particularly when it comes to my homelab.">
   <style>
   .rise { animation: rise .7s cubic-bezier(.2,.8,.2,1) both; }
   @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 </style>
-  <g class="rise">
+  <g transform="translate(0 14)"><g class="rise">
   <rect x="9.5" y="9.5" width="1190" height="84" fill="#6f6f6f"/>
   <rect x="0.5" y="0.5" width="1189" height="83" fill="#e4e4e4" stroke="#6f6f6f"/>
   <rect x="0.5" y="0.5" width="236" height="83" fill="#f6f6f6" stroke="#6f6f6f"/>
   <text x="26" y="50.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace" font-size="24" fill="#3a3a3a" textLength="144.0" lengthAdjust="spacingAndGlyphs" xml:space="preserve">$ cat motd</text>
   <rect x="176.0" y="30.0" width="12.96" height="26" fill="#3a3a3a"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1s" repeatCount="indefinite" calcMode="discrete"/></rect>
   <text x="260" y="50.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace" font-size="24" fill="#1a1a1a" textLength="906.0" lengthAdjust="spacingAndGlyphs" xml:space="preserve" font-weight="700">I like to make stuff — particularly when it comes to my homelab.</text>
-  </g>
+  </g></g>
 </svg>
