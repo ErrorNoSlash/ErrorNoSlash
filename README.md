@@ -1,10 +1,10 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/banner-m-dark.svg"><source media="(max-width: 600px)" srcset="assets/banner-m-light.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
   <img src="assets/banner-light.svg" alt="Dias Stas — front-end developer from Belgium. NixOS, homelab and hand-made websites" width="100%">
 </picture>
 
 <p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/tagline-dark.svg"><img src="assets/tagline-light.svg" alt="I like to make stuff — particularly when it comes to my homelab." width="100%"></picture>
+  <picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/tagline-m-dark.svg"><source media="(max-width: 600px)" srcset="assets/tagline-m-light.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/tagline-dark.svg"><img src="assets/tagline-light.svg" alt="I like to make stuff — particularly when it comes to my homelab." width="100%"></picture>
 </p>
 
 <p align="center">
@@ -17,7 +17,7 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/terminal-dark.svg">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/terminal-m-dark.svg"><source media="(max-width: 600px)" srcset="assets/terminal-m-light.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/terminal-dark.svg">
     <img src="assets/terminal-light.svg" alt="A terminal running whoami, cat stack.txt, ls ~/sites, uname -a and ping dias" width="100%">
   </picture>
 </p>
@@ -27,19 +27,19 @@
 ## 📌 Sites
 
 <p align="center">
-  <a href="https://hello.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/site-hello-dark.svg"><img src="assets/site-hello-light.svg" alt="hello.errornoslash.be — my portfolio" width="50%"></picture></a><a href="https://contact.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/site-contact-dark.svg"><img src="assets/site-contact-light.svg" alt="contact.errornoslash.be — every way to reach me" width="50%"></picture></a><br><a href="https://blog.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/site-blog-dark.svg"><img src="assets/site-blog-light.svg" alt="blog.errornoslash.be — notes on the things I make" width="50%"></picture></a><a href="https://docs.errornoslash.be"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/site-docs-dark.svg"><img src="assets/site-docs-light.svg" alt="docs.errornoslash.be — docs for the things I make" width="50%"></picture></a>
+  <a href="https://hello.errornoslash.be"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/site-hello-m-dark.svg"><source media="(max-width: 600px)" srcset="assets/site-hello-m-light.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/site-hello-dark.svg"><img src="assets/site-hello-light.svg" alt="hello.errornoslash.be — my portfolio" width="50%"></picture></a><a href="https://contact.errornoslash.be"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/site-contact-m-dark.svg"><source media="(max-width: 600px)" srcset="assets/site-contact-m-light.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/site-contact-dark.svg"><img src="assets/site-contact-light.svg" alt="contact.errornoslash.be — every way to reach me" width="50%"></picture></a><br><a href="https://blog.errornoslash.be"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/site-blog-m-dark.svg"><source media="(max-width: 600px)" srcset="assets/site-blog-m-light.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/site-blog-dark.svg"><img src="assets/site-blog-light.svg" alt="blog.errornoslash.be — notes on the things I make" width="50%"></picture></a><a href="https://docs.errornoslash.be"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/site-docs-m-dark.svg"><source media="(max-width: 600px)" srcset="assets/site-docs-m-light.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/site-docs-dark.svg"><img src="assets/site-docs-light.svg" alt="docs.errornoslash.be — docs for the things I make" width="50%"></picture></a>
 </p>
 
 ## ❄️ Off GitHub
 
 <p align="center">
-  <a href="https://gitlab.com/nixos-projects/slashyos"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/off-github-dark.svg"><img src="assets/off-github-light.svg" alt="SlashyOS — my NixOS flake on GitLab: two hosts, niri + Noctalia, Stylix, CI on every push" width="100%"></picture></a>
+  <a href="https://gitlab.com/nixos-projects/slashyos"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/off-github-m-dark.svg"><source media="(max-width: 600px)" srcset="assets/off-github-m-light.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/off-github-dark.svg"><img src="assets/off-github-light.svg" alt="SlashyOS — my NixOS flake on GitLab: two hosts, niri + Noctalia, Stylix, CI on every push" width="100%"></picture></a>
 </p>
 
 ## 📝 now.txt
 
 <p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/now-dark.svg"><img src="assets/now-light.svg" alt="now.txt — building docs.errornoslash.be, tinkering with SlashyOS screen mirroring, writing on the blog" width="100%"></picture>
+  <picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/now-m-dark.svg"><source media="(max-width: 600px)" srcset="assets/now-m-light.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/now-dark.svg"><img src="assets/now-light.svg" alt="now.txt — building docs.errornoslash.be, tinkering with SlashyOS screen mirroring, writing on the blog" width="100%"></picture>
 </p>
 
 <details>
