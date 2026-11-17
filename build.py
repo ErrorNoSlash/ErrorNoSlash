@@ -461,7 +461,7 @@ def motd(t):
     label = "$ cat motd"
     tx = cell + 24
     tw = len(MOTD) * cw
-    top = 14  # a little air between the banner and this strip
+    top = 34  # air between the banner and this strip
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {h + sh + top}" role="img" aria-label="{esc(MOTD)}">
   <style>{RISE}</style>
   <g transform="translate(0 {top})"><g class="rise">

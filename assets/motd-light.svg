@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 108" role="img" aria-label="I like to make stuff — particularly when it comes to my homelab.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 128" role="img" aria-label="I like to make stuff — particularly when it comes to my homelab.">
   <style>
   .rise { animation: rise .7s cubic-bezier(.2,.8,.2,1) both; }
   @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 </style>
-  <g transform="translate(0 14)"><g class="rise">
+  <g transform="translate(0 34)"><g class="rise">
   <rect x="9.5" y="9.5" width="1190" height="84" fill="#6f6f6f"/>
   <rect x="0.5" y="0.5" width="1189" height="83" fill="#e4e4e4" stroke="#6f6f6f"/>
   <rect x="0.5" y="0.5" width="236" height="83" fill="#f6f6f6" stroke="#6f6f6f"/>
